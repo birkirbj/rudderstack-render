@@ -2,6 +2,7 @@ databases:
   - name: rudderstack
     ipAllowList: []
     plan: standard
+    region: frankfurt
 
 services:
   - type: web
@@ -9,6 +10,7 @@ services:
     name: rudderstack-backend
     dockerfilePath: ./backend/dockerfile
     dockerContext: ./backend
+    region: frankfurt
     healthCheckPath: /
     plan: starter plus
     envVars:
@@ -54,6 +56,7 @@ services:
     name: rudderstack-transformer
     dockerfilePath: ./transformer/dockerfile
     dockerContext: ./transformer
+    region: frankfurt
     plan: starter plus
     envVars:
       - key: STATSD_SERVER_HOST
@@ -70,6 +73,7 @@ services:
   - type: pserv
     env: docker
     name: rudderstack-statsd
+    region: frankfurt
     dockerfilePath: ./statsd/dockerfile
     dockerContext: ./statsd
     plan: starter
